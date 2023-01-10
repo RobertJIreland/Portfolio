@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './sidebar.module.css';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -40,36 +41,23 @@ const sidebarData = [
     },
 ]
 export default function Sidebar() {
-    const [sidebar, setSidebar] = useState(false);
-
-    const showSidebar = () => setSidebar(!sidebar)
+    const [open, setOpen] = useState(false);
 
   return (
-    <Box onMouseEnter={showSidebar}
-        sx={[{
-            height: '100vh',
-            width: 105,
-            backgroundColor: 'green',
-            position: 'fixed',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            transition: 'all 0.3s ease-in',
-        }, {
-            '&:hover': {
-                width: 220,
-            }
-        }]}>
-        <Box
-            sx={{
-                backgroundColor: 'darkGreen',
-                fontSize: '3rem',
-                padding: '30px 15px',
-                letterSpacing: 1,
-                fontWeight: 300,
-                textAlign: 'center',
+    <Box 
+        onMouseEnter={()=> setOpen(true)}
+        onMouseLeave={()=> setOpen(false)}
+        className={!open ? styles.sidebarClosed : styles.sidebar}>
+    <Box
+        sx={{
+            backgroundColor: '#573597',
+            fontSize: '3rem',
+            padding: '30px 15px',
+            letterSpacing: 1,
+            fontWeight: 300,
+            textAlign: 'center',
             }}>
-            RI
+            <p>RI</p>
         </Box>
             <List component='nav'
                 sx={{
@@ -77,11 +65,13 @@ export default function Sidebar() {
                 }}>
             {sidebarData.map((item, index) => {
                 return (
-                    <ListItem key={index} className={item.cName}>
+                    <ListItem key={index}>
                         <ListItemIcon>
                             {item.icon}
                         </ListItemIcon>
-                        <ListItemText primary={item.title} />
+                        <ListItemText 
+                            primary={item.title}
+                            className={!open ? styles.sidebarTextClosed : item.cName} />
                     </ListItem>
                 )
             })}
