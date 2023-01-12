@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './homepage.module.css'
 import Sidebar from './components/Sidebar.jsx';
 import profilePic from './static/images/profile-pic.jpeg';
 import Avatar from '@mui/material/Avatar';
@@ -26,24 +27,28 @@ export default function Homepage() {
           sx={{
             height: 350, 
             width: 350,
+            boxShadow: '13px 3px 4px #C2B3E6, 26px 6px 4px #DCD2EF, 39px 9px 4px #F3F0FA',
             }} />
         <Box 
           sx={{
-            padding:'0 15px',
-            letterSpacing: 1,
+            padding:'0 40px',
+            letterSpacing: 2,
             lineHeight: '1.2',
-            fontSize: '1rem',
           }}>
-          <p>Hello! My name is</p>
-          <h1>Robert Ireland</h1>
-          <Box 
-            sx={{
-              minWidth: 250,
-              fontSize: '1rem',
-            }}>
-            <p>I'm a <span>Full-Stack Web Developer</span> passionate about creating fun and interactive applications on the web.</p>
-          </Box>
-          <Button>Resume</Button>
+          <p className={styles.bio}>Hello! My name is</p>
+          <h1><span className={styles.highlight}>Robert</span> Ireland</h1>
+          <p className={styles.bio}>&nbsp;&nbsp;&nbsp;I'm a <span className={styles.highlight}>Full-Stack Web Developer </span> <br/> &nbsp;passionate about creating fun and <br/>interactive applications on the web.
+          </p>
+          <Button 
+            sx={[{
+              backgroundColor: '#573597',
+              color: 'white',
+            }, {
+              '&:hover': {
+                backgroundColor: '#9175D1',
+              }
+            }]}>Resume
+          </Button>
           <LinkedInIcon />
           <GitHubIcon />
         </Box>
