@@ -39,18 +39,42 @@ export default function Homepage() {
           <h1><span className={styles.highlight}>Robert</span> Ireland</h1>
           <p className={styles.bio}>&nbsp;&nbsp;&nbsp;I'm a <span className={styles.highlight}>Full-Stack Web Developer </span> <br/> &nbsp;passionate about creating fun and <br/>interactive applications on the web.
           </p>
-          <Button 
-            sx={[{
-              backgroundColor: '#573597',
-              color: 'white',
-            }, {
-              '&:hover': {
-                backgroundColor: '#9175D1',
-              }
-            }]}>Resume
-          </Button>
-          <LinkedInIcon />
-          <GitHubIcon />
+          <Box>
+            <Button 
+              sx={[{
+                backgroundColor: '#573597',
+                color: 'white',
+                width: 150,
+                height: 40,
+                borderRadius: 20,
+                marginBottom: '30px',
+              }, {
+                '&:hover': {
+                  backgroundColor: '#9175D1',
+                  boxShadow: 15,
+                }
+              }]}>Resume
+            </Button>
+            <LinkedInIcon 
+              sx={[{
+                fontSize: 40,
+                color: '#573597',
+                margin: '0px 90px',
+              },{
+                '&:hover': {
+                  color: '#9175D1',
+                }
+              }]}/>
+            <GitHubIcon 
+              sx={[{
+                fontSize: 40,
+                color: '#573597'
+              }, {
+                '&:hover': {
+                  color: '#9175D1',
+                }
+              }]}/>
+          </Box>  
         </Box>
       </Box>
     </>  

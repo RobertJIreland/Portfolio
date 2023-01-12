@@ -56,6 +56,7 @@ export default function Sidebar() {
             letterSpacing: 1,
             fontWeight: 300,
             textAlign: 'center',
+            color: '#F7FFF6',
             }}>
             <p>RI</p>
         </Box>
@@ -65,8 +66,21 @@ export default function Sidebar() {
                 }}>
             {sidebarData.map((item, index) => {
                 return (
-                    <ListItem key={index}>
-                        <ListItemIcon>
+                    <ListItem 
+                        key={index}
+                        sx={[{
+                            color: '#F7FFF6',
+                        },{
+                            '&:hover': {
+                                backgroundColor: '#9175D1',
+                                boxShadow: 10,
+                                borderRadius: 2,
+                            }
+                        }]}>
+                        <ListItemIcon 
+                            sx={{
+                                color: '#F7FFF6',
+                            }}>
                             {item.icon}
                         </ListItemIcon>
                         <ListItemText 
