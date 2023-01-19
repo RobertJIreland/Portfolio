@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './work.module.css';
 import Box from '@mui/material/Box';
 
 export default function Work() {

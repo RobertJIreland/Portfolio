@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './contact.module.css';
 import Box from '@mui/material/Box';
 
 export default function Contact() {
