@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './homepage.module.css'
-import Sidebar from './components/Sidebar.jsx';
-import profilePic from './static/images/profile-pic.jpeg';
+import Sidebar from '../components/Sidebar.jsx';
+import profilePic from '../static/images/profile-pic.jpeg';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -21,6 +21,7 @@ export default function Homepage() {
           width: '100%',
           display: 'flex',
           backgroundColor: '#F7FFF6',
+          scrollSnapAlign: 'center',
         }}>
         <Avatar 
           src={profilePic}

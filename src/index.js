@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import Homepage from './Homepage';
+import styles from './index.module.css';
+import Homepage from './sections/Homepage.jsx';
+import About from './sections/About.jsx';
+import Contact from './sections/Contact.jsx';
+import Work from './sections/Work.jsx';
+import Skills from './sections/Skills.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <div className={styles.container}>
     <Homepage />
-  </React.StrictMode>
+    <About />
+    <Skills />
+    <Work />
+    <Contact />
+  </div>
 );
