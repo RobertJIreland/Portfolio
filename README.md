@@ -36,7 +36,7 @@ Homepage expanded:
 Today I finished my homepage which includes the sidebar. I had done the basic setup stuff before starting this devlog but basically I initialized a new project using npx create-react-app and npm installed material.ui. I prefer using MUI component library. I feel like it's a good balance of functionality and ease of use. The homepage links arent connected yet. I need to look into letting a user pull up a PDF copy of my resume and I need to build another page so I can hook up the links on the sidebar. I'm not worried about setting up the github and linkedin icon links. I also deployed to netlify today without a single issue!
 
 Homepage live on netlify:
-![Live screenshot of homepage](https://github.com/RobertJIreland/Portfolio/blob/main/react-mui.jpg)
+![Live screenshot of homepage](https://github.com/RobertJIreland/Portfolio/blob/main/readmePictures/react-mui.jpg)
 
 ##### 1/18/2023
 
