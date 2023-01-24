@@ -1,0 +1,7 @@
+.panelFocus {
+    opacity: .50;
+}
+
+.panelUnfocused {
+    opacity: 1;
+}
