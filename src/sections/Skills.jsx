@@ -1,6 +1,5 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import styles from "./skills.module.css";
 import { DiReact, DiCss3, DiPython } from "react-icons/di";
 import { AiFillHtml5 } from "react-icons/ai";
 import { IoLogoJavascript } from "react-icons/io";
