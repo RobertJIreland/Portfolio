@@ -19,7 +19,6 @@ export default function Homepage() {
           height: "100vh",
           width: "100%",
           display: "flex",
-          backgroundColor: "#F7FFF6",
           scrollSnapAlign: "center",
         }}
       >

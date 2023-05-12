@@ -1,4 +1,3 @@
-
 # Table of Contents
 
 - [Introduction](#introduction)
@@ -11,11 +10,9 @@
 Hello! My name is Robert Ireland. I am a Full-Stack Web Developer and this is my portfolio.
 I'm using this readme as a devlog to document the process of building my portfolio website. As such, at the time of writing this introduction, this readme is incomplete and still being added to.
 
-*Click on the title of any section to return to the table of contents*
+_Click on the title of any section to return to the table of contents_
 
 ## [How To Run Locally](#table-of-contents)
-
-
 
 ## [Designing With Figma](#table-of-contents)
 
@@ -41,7 +38,7 @@ About Me Page Expanded:
 
 ## [React With MUI](#table-of-contents)
 
-##### 1/12/2023 
+##### 1/12/2023
 
 Today I finished my homepage which includes the sidebar. I had done the basic setup stuff before starting this devlog but basically I initialized a new project using npx create-react-app and npm installed material.ui. I prefer using MUI component library. I feel like it's a good balance of functionality and ease of use. The homepage links arent connected yet. I need to look into letting a user pull up a PDF copy of my resume and I need to build another page so I can hook up the links on the sidebar. I'm not worried about setting up the github and linkedin icon links. I also deployed to netlify today without a single issue!
 

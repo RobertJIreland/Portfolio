@@ -1,37 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Box from "@mui/material/Box";
 import styles from "./about.module.css";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
 
 export default function About() {
   const [sectionOne, setSectionOne] = useState(false);
-  console.log("section one", sectionOne);
-
   const [sectionTwo, setSectionTwo] = useState(false);
-  console.log("section two", sectionTwo);
-
   const [sectionThree, setSectionThree] = useState(false);
-  console.log("section three", sectionThree);
+  const [showMore, setShowMore] = useState(false);
+  const boxRef = useRef(null);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  useEffect(() => {
+    if (boxRef.current.scrollHeight > boxRef.current.clientHeight) {
+      setIsOverflowing(true);
+    }
+  }, []);
 
   return (
     <>
-      <Box
+      <Container
         sx={[
           {
             height: "100vh",
-            width: "100%",
             scrollSnapAlign: "center",
-            backgroundColor: "black",
-          },
-          {
-            "&:hover": {
-              backgroundColor: "",
-            },
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
           },
         ]}
       >
         <Box
           onMouseEnter={() => setSectionOne(true)}
           onMouseLeave={() => setSectionOne(false)}
+          ref={boxRef}
           className={
             !sectionOne & !sectionTwo & !sectionThree
               ? styles.panelUnfocused
@@ -39,37 +42,57 @@ export default function About() {
           }
           sx={[
             {
-              marginLeft: "105px",
-              height: "33.33%",
-              backgroundColor: "#9FA0FF",
+              height: "80%",
+              width: "30%",
+              marginLeft: "8.75vw",
+              backgroundColor: "#E0F5E9",
+              boxSizing: "border-box",
+              boxShadow: 2,
               letterSpacing: 2,
               lineHeight: "1.2",
-              transition: "height .5s",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
             },
             {
               "&:hover": {
                 opacity: 1,
-                height: "35%",
               },
             },
           ]}
         >
           <h2>From Cooking,</h2>
-          <Box
-            sx={{
-              textAlign: "center",
-              marginTop: 4,
-              fontSize: 19,
-            }}
-          >
-            I started my career journey at 19 years old with a quick decision to
-            move to New Orleans, LA and pursue a passion for cooking. Some of my
-            highest accomplishments came during this time including working
-            along side renowned chefs, becoming an offsite representative, and
-            meeting numerous famous people. Some of the restaurants I worked at
-            included Otra Vez, Seaworthy, and Josephine Estelle as well as
-            staging for restaurants like Saba and Turkey and the Wolf.
-          </Box>
+          {showMore ? (
+            <p>
+              At the young age of 19, I made a bold decision to follow my
+              passion for cooking and move to New Orleans, LA to start my career
+              journey. During this time, I had the privilege of working
+              alongside some of the most renowned chefs in the industry, which
+              allowed me to hone my skills and develop my own unique approach to
+              cooking. Not only did I become an offsite representative for some
+              of the top restaurants in the area, but I also had the opportunity
+              to rub shoulders with numerous famous people.
+            </p>
+          ) : (
+            <p>
+              At the young age of 19, I made a bold decision to follow my
+              passion for cooking and move to New Orleans, LA to start my career
+              journey. During this time, I had the privilege of working
+              alongside some of the most renowned chefs in the industry, which
+              allowed me to hone my skills and develop my own unique approach to
+              cooking. Not only did I become an offsite representative for some
+              of the top restaurants in the area, but I also had the opportunity
+              to rub shoulders with numerous famous people. Some of the
+              restaurants I worked at during my time in New Orleans included
+              Otra Vez, Seaworthy, and Josephine Estelle, and I also had the
+              chance to stage for popular establishments such as Saba and Turkey
+              and the Wolf.
+            </p>
+          )}
+          {isOverflowing && (
+            <Button onClick={() => setShowMore(!showMore)}>
+              {showMore ? "Show less" : "Show more"}
+            </Button>
+          )}
         </Box>
         <Box
           onMouseEnter={() => setSectionTwo(true)}
@@ -81,39 +104,39 @@ export default function About() {
           }
           sx={[
             {
-              marginLeft: "105px",
-              height: "33.33%",
-              backgroundColor: "#8895B3",
+              height: "80%",
+              width: "30%",
+              marginLeft: "8.75vw",
+              backgroundColor: "#E0F5E9",
               letterSpacing: 2,
               lineHeight: "1.2",
-              transition: "height .5s",
+              boxSizing: "border-box",
+              boxShadow: 2,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
             },
             {
               "&:hover": {
                 opacity: 1,
-                height: "35%",
               },
             },
           ]}
         >
           <h2>To Coding,</h2>
-          <Box
-            sx={{
-              textAlign: "center",
-              marginTop: 4,
-              fontSize: 19,
-            }}
-          >
-            With news of my moms declining health and a growing feeling of
-            homesickness, I decided it was time for me to move back home to Four
-            Oaks, NC. Quickly I realized that in order to work at the quality of
-            restaurants I wanted to be in, I would have to drive an hour,
-            sometimes more, in order to get there and when some nights go on
-            until 1 - 2 am, getting home at 3 am, and turning around to be back
-            at 7 am, it was clear it was time for a change. I decided to attend
-            Momentum Learning of Durham, NC after seeing the success it brought
-            some of my close friends
-          </Box>
+          <p>
+            After spending several years working in some of the top restaurants
+            in New Orleans, I made the difficult decision to move back home to
+            Four Oaks, NC due to my mother's declining health and a growing
+            sense of homesickness. However, I quickly realized that the local
+            restaurant scene did not offer the same level of quality and
+            challenge that I had become accustomed to. Despite having to endure
+            long and grueling hours that often required me to drive for an hour
+            or more, work late into the night, and return to work early in the
+            morning, I was determined to find a way to pursue my passion for
+            cooking. That's when I discovered Momentum Learning of Durham, NC,
+            and after seeing the success that some of my close friends had
+            achieved through the program, I knew it was the right choice for me.
+          </p>
         </Box>
         <Box
           onMouseEnter={() => setSectionThree(true)}
@@ -125,40 +148,41 @@ export default function About() {
           }
           sx={[
             {
-              marginLeft: "105px",
-              height: "33.33%",
-              backgroundColor: "#8E94F2",
+              height: "80%",
+              width: "30%",
+              marginLeft: "8.75vw",
+              backgroundColor: "#E0F5E9",
               letterSpacing: 2,
               lineHeight: "1.2",
-              transition: "height .5s",
+              boxSizing: "border-box",
+              boxShadow: 2,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
             },
             {
               "&:hover": {
                 opacity: 1,
-                height: "35%",
               },
             },
           ]}
         >
           <h2>And Beyond!</h2>
-          <Box
-            sx={{
-              textAlign: "center",
-              marginTop: 4,
-              fontSize: 19,
-            }}
-          >
-            Attending and then graduating from Momentum Learning was by far one
-            of the best decisions I’ve ever made. I’ve found a deep passion for
-            problem solving and design as well as discovering ways of learning
-            never taught to me before in regular schooling. Having a Full-Stack
-            Engineering certificate means I can work on both front-end and
-            back-end as well as the in-between parts but I find my true love
-            falls in the design and front-end parts of a website with React and
-            Material.UI being my go-to tools.
-          </Box>
+          <p>
+            Completing the Full-Stack Engineering program at Momentum Learning
+            was truly one of the most rewarding experiences of my career. Not
+            only did it equip me with the technical skills to work on both
+            front-end and back-end development, but it also helped me discover a
+            deep passion for problem-solving and design. I was particularly
+            impressed with the program's emphasis on innovative learning methods
+            that I had never encountered before in traditional schooling. While
+            I am proficient in all aspects of web development, including
+            back-end technologies, I find that my true passion lies in designing
+            and developing the user interface of websites. In this regard, I
+            prefer to work with React and Material.UI, as I believe they offer
+            the most efficient and user-friendly tools for this purpose.
+          </p>
         </Box>
-      </Box>
+      </Container>
     </>
   );
 }
