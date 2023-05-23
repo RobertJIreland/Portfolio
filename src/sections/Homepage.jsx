@@ -7,12 +7,13 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import Container from "@mui/material/Container";
 
 export default function Homepage() {
   return (
     <>
       <Sidebar />
-      <Box
+      <Container
         sx={{
           justifyContent: "center",
           alignItems: "center",
@@ -25,15 +26,17 @@ export default function Homepage() {
         <Avatar
           src={profilePic}
           sx={{
-            height: 350,
-            width: 350,
+            height: 'auto',
+            width: '100%',
+            maxWidth: 350,
+            maxHeight: 350,
             boxShadow:
               "13px 3px 4px #C2B3E6, 26px 6px 4px #DCD2EF, 39px 9px 4px #F3F0FA",
           }}
         />
         <Box
           sx={{
-            padding: "0 40px",
+            padding: "0 3vw",
             letterSpacing: 2,
             lineHeight: "1.2",
           }}
@@ -54,8 +57,10 @@ export default function Homepage() {
                 {
                   backgroundColor: "#573597",
                   color: "white",
-                  width: 150,
-                  height: 40,
+                  width: '20vw',
+                  height: '5vh',
+                  maxWidth: 150,
+                  maxHeight: 40,
                   borderRadius: 20,
                   marginBottom: "30px",
                 },
@@ -98,7 +103,7 @@ export default function Homepage() {
             />
           </Box>
         </Box>
-      </Box>
+      </Container>
     </>
   );
 }
